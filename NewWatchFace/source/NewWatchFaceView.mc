@@ -6,15 +6,22 @@ import Toybox.System;
 import Toybox.Time;
 import Toybox.Time.Gregorian;
 import Toybox.WatchUi;
+import Toybox.Weather;
 
 var HoursFont;
 var SecondsFont;
 
 class NewWatchFaceView extends WatchUi.WatchFace {
+    private var mBatteryLabel;
     private var mDateLabel;
+    private var mHeartRateLabel;
     private var mHoursLabel;
     private var mMinutesLabel;
     private var mSecondsLabel;
+    private var mStepsLabel;
+    private var mSunriseSunsetLabel;
+    private var mWeatherLabel;
+
     private var mLines = [];
 
     private var mDayOfWeek;
@@ -33,10 +40,15 @@ class NewWatchFaceView extends WatchUi.WatchFace {
     function onLayout(dc as Dc) as Void {
         setLayout(Rez.Layouts.WatchFace(dc));
 
+        mBatteryLabel = View.findDrawableById("BatteryLabel") as Text;
         mDateLabel = View.findDrawableById("DateLabel") as Text;
+        mHeartRateLabel = View.findDrawableById("HeartRateLabel") as Text;
         mHoursLabel = View.findDrawableById("HoursLabel") as Text;
         mMinutesLabel = View.findDrawableById("MinutesLabel") as Text;
         mSecondsLabel = View.findDrawableById("SecondsLabel") as Text;
+        mStepsLabel = View.findDrawableById("StepsLabel") as Text;
+        mSunriseSunsetLabel = View.findDrawableById("SunriseSunsetLabel") as Text;
+        mWeatherLabel = View.findDrawableById("WeatherLabel") as Text;
 
         mLines.add(linePixelCoords(dc, 0.15, 0.4, 0.85, 0.4));
         mLines.add(linePixelCoords(dc, 0.15, 0.6, 0.85, 0.6));
@@ -50,8 +62,12 @@ class NewWatchFaceView extends WatchUi.WatchFace {
 
     // Update the view
     function onUpdate(dc as Dc) as Void {
+        updateBattery(dc);
         updateClock(dc);
         updateDate(dc);
+        updateHeartRate(dc);
+        updateSteps(dc);
+        updateWeather(dc);
 
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
@@ -85,6 +101,11 @@ class NewWatchFaceView extends WatchUi.WatchFace {
 
     hidden function linePixelCoords(dc as Dc, x1 as Float, y1 as Float, x2 as Float, y2 as Float) as Array {
         return [Math.ceil(dc.getWidth() * x1), Math.ceil(dc.getHeight() * y1), Math.ceil(dc.getWidth() * x2), Math.ceil(dc.getHeight() * y2)];
+    }
+
+    hidden function updateBattery(dc as Dc) as Void {
+        var battery = System.getSystemStats().battery.toLong();
+        mBatteryLabel.setText(Lang.format("Batt $1$%", [battery]));
     }
 
     hidden function updateClock(dc as Dc) as Void {
@@ -143,5 +164,49 @@ class NewWatchFaceView extends WatchUi.WatchFace {
         }
 
         mDateLabel.setText(Lang.format("$1$ $2$ $3$", [mDayOfWeekStr, mMonthStr, now.day.format("%d")]));
+    }
+
+    private function updateHeartRate(dc as Dc) as Void {
+        var heartRate = Activity.getActivityInfo().currentHeartRate;
+        if (heartRate == null) {
+            var sample = ActivityMonitor.getHeartRateHistory(1, true).next();
+            if (sample != null && sample.heartRate != ActivityMonitor.INVALID_HR_SAMPLE) {
+                heartRate = sample.heartRate;
+            }
+        }
+
+        if (heartRate != null) {
+            mHeartRateLabel.setText(heartRate.format("%d") + " bpm");
+        } else {
+            mHeartRateLabel.setText("--");
+        }
+    }
+
+    private function updateSteps(dc as Dc) as Void {
+        var steps = ActivityMonitor.getInfo().steps;
+        var stepGoal = ActivityMonitor.getInfo().stepGoal;
+        mStepsLabel.setText(Lang.format("$1$ / $2$ steps", [steps.format("%d"), stepGoal.format("%d")]));
+    }
+
+    private function updateWeather(dc as Dc) as Void {
+        var currentConditions = Weather.getCurrentConditions();
+        if (currentConditions != null) {
+            mWeatherLabel.setText(Lang.format("$1$ / $2$, $3$", [tempStr(currentConditions.lowTemperature), tempStr(currentConditions.highTemperature), tempStr(currentConditions.temperature)]));
+
+            //var sunrise = Weather.getSunrise(currentConditions.observationLocationPosition, currentConditions.observationTime);
+            //var sunset = Weather.getSunset(currentConditions.observationLocationPosition, currentConditions.observationTime);
+            //var sunriseTime = Gregorian.info(sunrise, Time.FORMAT_SHORT);
+            //var sunsetTime = Gregorian.info(sunset, Time.FORMAT_SHORT);
+
+            //mSunriseSunsetLabel.setText(Lang.format("$1$:$2$ AM / $3$:$4$ PM", [sunriseTime.hour.format("%d"), sunriseTime.min.format("%02d"), sunsetTime.hour.format("%d"), sunsetTime.min.format("%02d")]));
+        } else {
+            mWeatherLabel.setText("--");
+            mSunriseSunsetLabel.setText("--");
+        }
+    }
+
+    private function tempStr(temperatureC as Numeric) as String {
+        var temperatureF = (temperatureC * 1.8) + 32;
+        return temperatureF.format("%d") + "°";
     }
 }
