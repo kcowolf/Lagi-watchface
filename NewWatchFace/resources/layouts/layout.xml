@@ -1,0 +1,30 @@
+<layout id="WatchFace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <drawable class="Background" />
+
+    <drawable id="DateLabel" class="Ui.Text">
+        <param name="locX">dc.getWidth() * .5 - 5</param>
+        <param name="locY">dc.getHeight() * .1</param>
+        <param name="color">Graphics.COLOR_WHITE</param>
+        <param name="font">Graphics.FONT_SYSTEM_XTINY</param>
+        <param name="justification">Graphics.TEXT_JUSTIFY_CENTER</param>
+    </drawable>
+    <drawable id="HoursLabel" class="Ui.Text">
+        <param name="locX">dc.getWidth() * .5 - 5</param>
+        <param name="locY">dc.getHeight() * .5</param>
+        <param name="color">Graphics.COLOR_BLUE</param>
+        <param name="font">HoursFont</param>
+        <param name="justification">Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER</param>
+    </drawable>
+    <drawable id="MinutesLabel" class="Ui.Text">
+        <param name="locX">dc.getWidth() * .5 + 5</param>
+        <param name="locY">dc.getHeight() * .5</param>
+        <param name="color">Graphics.COLOR_WHITE</param>
+        <param name="font">HoursFont</param>
+        <param name="justification">Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER</param>
+    </drawable>
+    <drawable id="SecondsLabel" class="Ui.Text">
+        <param name="locY">dc.getHeight() * .5</param>
+        <param name="font">SecondsFont</param>
+        <param name="justification">Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER</param>
+    </drawable>
+</layout>
