@@ -1,66 +1,12 @@
 <layout id="WatchFace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <drawable class="Background" />
 
-    <drawable id="DateLabel" class="Ui.Text">
-        <param name="locX">dc.getWidth() * .5 - 5</param>
-        <param name="locY">dc.getHeight() * .1</param>
-        <param name="color">Graphics.COLOR_WHITE</param>
-        <param name="font">Graphics.FONT_SYSTEM_TINY</param>
-        <param name="justification">Graphics.TEXT_JUSTIFY_CENTER</param>
+    <drawable id="Date" class="DateView" />
+    <drawable id="Clock" class="ClockView">
+        <param name="hmSpacing">5</param>
+        <param name="msSpacing">5</param>
     </drawable>
-    <drawable id="WeatherLabel" class="Ui.Text">
-        <param name="locX">dc.getWidth() * .5</param>
-        <param name="locY">dc.getHeight() * .2</param>
-        <param name="color">Graphics.COLOR_WHITE</param>
-        <param name="font">Graphics.FONT_SYSTEM_TINY</param>
-        <param name="justification">Graphics.TEXT_JUSTIFY_CENTER</param>
-    </drawable>
-    <drawable id="SunriseSunsetLabel" class="Ui.Text">
-        <param name="locX">dc.getWidth() * .5</param>
-        <param name="locY">dc.getHeight() * .3</param>
-        <param name="color">Graphics.COLOR_WHITE</param>
-        <param name="font">Graphics.FONT_SYSTEM_TINY</param>
-        <param name="justification">Graphics.TEXT_JUSTIFY_CENTER</param>
-    </drawable>
-    <drawable id="HoursLabel" class="Ui.Text">
-        <param name="locX">dc.getWidth() * .5 - 5</param>
-        <param name="locY">dc.getHeight() * .5</param>
-        <param name="color">Graphics.COLOR_BLUE</param>
-        <param name="font">HoursFont</param>
-        <param name="justification">Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER</param>
-    </drawable>
-    <drawable id="MinutesLabel" class="Ui.Text">
-        <param name="locX">dc.getWidth() * .5 + 5</param>
-        <param name="locY">dc.getHeight() * .5</param>
-        <param name="color">Graphics.COLOR_WHITE</param>
-        <param name="font">HoursFont</param>
-        <param name="justification">Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER</param>
-    </drawable>
-    <drawable id="SecondsLabel" class="Ui.Text">
-        <param name="locY">dc.getHeight() * .5</param>
-        <param name="color">Graphics.COLOR_WHITE</param>
-        <param name="font">SecondsFont</param>
-        <param name="justification">Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER</param>
-    </drawable>
-    <drawable id="StepsLabel" class="Ui.Text">
-        <param name="locX">dc.getWidth() * .5</param>
-        <param name="locY">dc.getHeight() * .7</param>
-        <param name="color">Graphics.COLOR_WHITE</param>
-        <param name="font">Graphics.FONT_SYSTEM_TINY</param>
-        <param name="justification">Graphics.TEXT_JUSTIFY_CENTER</param>
-    </drawable>
-    <drawable id="HeartRateLabel" class="Ui.Text">
-        <param name="locX">dc.getWidth() * .5</param>
-        <param name="locY">dc.getHeight() * .8</param>
-        <param name="color">Graphics.COLOR_WHITE</param>
-        <param name="font">Graphics.FONT_SYSTEM_TINY</param>
-        <param name="justification">Graphics.TEXT_JUSTIFY_CENTER</param>
-    </drawable>
-    <drawable id="BatteryLabel" class="Ui.Text">
-        <param name="locX">dc.getWidth() * .5</param>
-        <param name="locY">dc.getHeight() * .9</param>
-        <param name="color">Graphics.COLOR_WHITE</param>
-        <param name="font">Graphics.FONT_SYSTEM_TINY</param>
-        <param name="justification">Graphics.TEXT_JUSTIFY_CENTER</param>
-    </drawable>
+    <drawable id="WeatherTemps" class="WeatherTempsView" />
+    <drawable id="HeartBatt" class="HeartBattView" />
+    <drawable id="Steps" class="StepsView" />
 </layout>
