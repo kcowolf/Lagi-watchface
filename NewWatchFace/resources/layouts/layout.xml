@@ -7,6 +7,6 @@
         <param name="msSpacing">5</param>
     </drawable>
     <drawable id="WeatherTemps" class="WeatherTempsView" />
-    <drawable id="HeartBatt" class="HeartBattView" />
+    <drawable id="HeartRate" class="HeartRateView" />
     <drawable id="Steps" class="StepsView" />
 </layout>

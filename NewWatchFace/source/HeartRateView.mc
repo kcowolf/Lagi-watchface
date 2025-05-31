@@ -4,12 +4,14 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-class HeartBattView extends WatchUi.Drawable {
+class HeartRateView extends WatchUi.Drawable {
     private var mFont;
+    private var mIconFont;
 
     function initialize(params as Dictionary) {
         Drawable.initialize(params);
         mFont = WatchUi.loadResource(Rez.Fonts.SecondsFont);
+        mIconFont = WatchUi.loadResource(Rez.Fonts.IconFont);
     }
 
     function draw(dc) {
@@ -24,30 +26,30 @@ class HeartBattView extends WatchUi.Drawable {
         }
 
         if (heartRate != null) {
-            heartRateStr = heartRate.format("%d") + " BPM";
+            heartRateStr = heartRate.format("%d");
         } else {
             heartRateStr = "--";
         }
 
-        var battery = System.getSystemStats().battery.toLong();
-        var batteryStr = Lang.format("BATT $1$%", [battery]);
-
-        var viewX = dc.getWidth() * 0.2;
-        var viewW = (dc.getWidth() / 2) - viewX;
+        var viewX = dc.getWidth() * 0.1;
         var viewY = dc.getHeight() * 0.6;
-        var viewH = dc.getHeight() - viewY;
+        var viewW = dc.getWidth() * 0.4;
+        var viewH = dc.getHeight() * 0.3;
+
         var x;
         var y;
 
+        var iconDimensions = dc.getTextDimensions("A", mIconFont);
         var heartRateDimensions = dc.getTextDimensions(heartRateStr, mFont);
-        var batteryDimensions = dc.getTextDimensions(batteryStr, mFont);
 
-        x = viewX + (viewW / 2);
-        y = viewY + ((viewH / 2) - ((heartRateDimensions[1] + batteryDimensions[1]) / 2));
+        x = viewX + (viewW / 2) - ((iconDimensions[0] + heartRateDimensions[0] + 2) / 2);
+        y = viewY + (viewH / 2) - (iconDimensions[1] / 2);
+        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, y, mIconFont, "A", Graphics.TEXT_JUSTIFY_LEFT);
+
+        x += iconDimensions[0] + 2;
+        y = viewY + (viewH / 2) - (heartRateDimensions[1] / 2);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, mFont, heartRateStr, Graphics.TEXT_JUSTIFY_CENTER);
-
-        y += batteryDimensions[1];
-        dc.drawText(x, y, mFont, batteryStr, Graphics.TEXT_JUSTIFY_CENTER);
-    }
+        dc.drawText(x, y, mFont, heartRateStr, Graphics.TEXT_JUSTIFY_LEFT);
+   }
 }

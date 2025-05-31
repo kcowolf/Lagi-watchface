@@ -1,4 +1,6 @@
 <fonts>
     <font id="ClockFont" filename="Rajdhani-Bold_120.fnt" antialias="true"/>
     <font id="SecondsFont" filename="Rajdhani-Bold_40.fnt" antialias="true"/>
+    <font id="WeatherIconFont" filename="weathericons-regular-webfont-Bold_60.fnt" antialias="true"/>
+    <font id="IconFont" filename="Phosphor-Fill-Bold_40.fnt" antialias="true"/>
 </fonts>
