@@ -5,7 +5,7 @@ import Toybox.Time;
 import Toybox.WatchUi;
 import Toybox.Weather;
 
-class WeatherTempsView extends WatchUi.Drawable {
+class WeatherView extends WatchUi.Drawable {
     private var mFont;
     private var mIconFont;
     private var mCondition;
@@ -138,9 +138,12 @@ class WeatherTempsView extends WatchUi.Drawable {
         }
 
         var viewX = dc.getWidth()* 0.1;
-        var viewY = 0;
+        var viewY = dc.getHeight()* 0.15;
         var viewW = dc.getWidth() * 0.4;
-        var viewH = dc.getHeight() * 0.4;
+        var viewH = dc.getHeight() * 0.20;
+
+        //dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        //dc.drawRectangle(viewX, viewY, viewW, viewH);
 
         var highLowtempsStr = Lang.format("$1$ $2$", [
             tempStr(currentConditions.lowTemperature),

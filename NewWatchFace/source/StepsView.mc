@@ -19,9 +19,12 @@ class StepsView extends WatchUi.Drawable {
         var stepGoal = ActivityMonitor.getInfo().stepGoal;
 
         var viewX = dc.getWidth() * 0.5;
-        var viewY = dc.getHeight() * 0.6;
+        var viewY = dc.getHeight() * 0.65;
         var viewW = dc.getWidth() * 0.4;
-        var viewH = dc.getHeight() * 0.3;
+        var viewH = dc.getHeight() * 0.20;
+
+        //dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        //dc.drawRectangle(viewX, viewY, viewW, viewH);
 
         var stepsStr = steps.format("%d");
         var stepGoalStr = stepGoal.format("%d");

@@ -37,7 +37,7 @@ class ClockView extends WatchUi.Drawable {
         var minutesDimensions = dc.getTextDimensions(minutesStr, mFont);
         var secondsDimensions = dc.getTextDimensions(secondsStr, mSecondsFont);
 
-        var lineLength = (dc.getWidth() * 0.7);
+        var lineLength = (dc.getWidth() * 0.75);
         var x = (dc.getWidth() / 2) - (lineLength / 2);
         var y = (dc.getHeight() / 2) - (hoursDimensions[1] / 2) + 10;
 

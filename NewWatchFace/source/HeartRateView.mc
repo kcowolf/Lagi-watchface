@@ -32,9 +32,12 @@ class HeartRateView extends WatchUi.Drawable {
         }
 
         var viewX = dc.getWidth() * 0.1;
-        var viewY = dc.getHeight() * 0.6;
+        var viewY = dc.getHeight() * 0.65;
         var viewW = dc.getWidth() * 0.4;
-        var viewH = dc.getHeight() * 0.3;
+        var viewH = dc.getHeight() * 0.2;
+
+        //dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        //dc.drawRectangle(viewX, viewY, viewW, viewH);
 
         var x;
         var y;
