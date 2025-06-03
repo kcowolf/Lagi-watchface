@@ -12,7 +12,7 @@
         <param name="msSpacing">5</param>
     </drawable>
     <drawable id="Weather" class="WeatherView">
-        <param name="locX">dc.getWidth()* 0.1</param>
+        <param name="locX">dc.getWidth()* 0.5</param>
         <param name="locY">dc.getHeight()* 0.15</param>
         <param name="width">dc.getWidth() * 0.4</param>
         <param name="height">dc.getHeight() * 0.20</param>
@@ -30,19 +30,19 @@
         <param name="height">dc.getHeight() * 0.20</param>
     </drawable>
     <drawable id="Battery" class="BatteryView">
-        <param name="locX">dc.getWidth()* 0.5</param>
-        <param name="locY">dc.getHeight()* 0.15</param>
-        <param name="width">dc.getWidth() * 0.4</param>
-        <param name="height">dc.getHeight() * 0.20</param>
+        <param name="locX">0</param>
+        <param name="locY">dc.getHeight() * 0.85</param>
+        <param name="width">dc.getWidth()</param>
+        <param name="height">dc.getHeight() * 0.15</param>
     </drawable>
     <drawable id="Bluetooth" class="BluetoothView">
         <param name="locX">dc.getWidth() * 0.1</param>
         <param name="locY">dc.getHeight() / 2</param>
     </drawable>
     <drawable id="Notifications" class="NotificationsView">
-        <param name="locX">0</param>
-        <param name="locY">dc.getHeight() * 0.85</param>
-        <param name="width">dc.getWidth()</param>
-        <param name="height">dc.getHeight() * 0.15</param>
+        <param name="locX">dc.getWidth()* 0.1</param>
+        <param name="locY">dc.getHeight()* 0.15</param>
+        <param name="width">dc.getWidth() * 0.4</param>
+        <param name="height">dc.getHeight() * 0.20</param>
     </drawable>
 </layout>
