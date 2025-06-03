@@ -1,7 +1,6 @@
 import Toybox.Application;
 import Toybox.Lang;
 import Toybox.System;
-import Toybox.Time;
 import Toybox.WatchUi;
 import Toybox.Weather;
 
@@ -19,6 +18,9 @@ class WeatherView extends WatchUi.Drawable {
     }
 
     function draw(dc) {
+        var clockTime = System.getClockTime();
+        var isNight = (clockTime.hour <= 3 || clockTime.hour >= 17);
+
         var currentConditions = Weather.getCurrentConditions();
         if (currentConditions == null) {
             return;
@@ -147,14 +149,21 @@ class WeatherView extends WatchUi.Drawable {
 
         var currentTempStr = tempStr(currentConditions.temperature);
 
+        var conditionStr;
+        if (isNight) {
+            conditionStr = mNightConditionStr;
+        } else {
+            conditionStr = mDayConditionStr;
+        }
+
         var highLowDimensions = dc.getTextDimensions(highLowtempsStr, mFont);
         var currentTempDimensions = dc.getTextDimensions(currentTempStr, mFont);
-        var iconDimensions = dc.getTextDimensions(mDayConditionStr, mIconFont);
+        var iconDimensions = dc.getTextDimensions(conditionStr, mIconFont);
 
         var x = locX + (width / 2) - ((iconDimensions[0] + currentTempDimensions[0] + 2) / 2);
         var y = locY + (height / 2) - ((iconDimensions[1] + highLowDimensions[1]) / 2);
         dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, mIconFont, mDayConditionStr, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(x, y, mIconFont, conditionStr, Graphics.TEXT_JUSTIFY_LEFT);
 
         x += iconDimensions[0] + 2;
         y += ((iconDimensions[1] / 2) - (currentTempDimensions[1] / 2));

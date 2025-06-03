@@ -1,9 +1,7 @@
 import Toybox.Application;
 import Toybox.Lang;
 import Toybox.System;
-import Toybox.Time;
 import Toybox.WatchUi;
-import Toybox.Weather;
 
 class BatteryView extends WatchUi.Drawable {
     private var mFont;
@@ -16,7 +14,6 @@ class BatteryView extends WatchUi.Drawable {
     }
 
     function draw(dc) {
-
         var battery = System.getSystemStats().battery.toLong();
         var batteryStr = battery.format("%d") + "%";
 

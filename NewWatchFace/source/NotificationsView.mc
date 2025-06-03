@@ -1,8 +1,6 @@
 import Toybox.Application;
 import Toybox.Lang;
 import Toybox.System;
-import Toybox.Time;
-import Toybox.Time.Gregorian;
 import Toybox.WatchUi;
 
 class NotificationsView extends WatchUi.Drawable {
