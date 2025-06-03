@@ -35,7 +35,6 @@ class ClockView extends WatchUi.Drawable {
 
         var hoursDimensions = dc.getTextDimensions(hourStr, mFont);
         var minutesDimensions = dc.getTextDimensions(minutesStr, mFont);
-        var secondsDimensions = dc.getTextDimensions(secondsStr, mSecondsFont);
 
         var lineLength = (dc.getWidth() * 0.75);
         var x = (dc.getWidth() / 2) - (lineLength / 2);
@@ -50,18 +49,15 @@ class ClockView extends WatchUi.Drawable {
         var hmLength = hoursDimensions[0] + minutesDimensions[0] + mHmSpacing;
 
         x = (dc.getWidth() / 2) - (hmLength / 2);
-        y = (dc.getHeight() / 2) - (hoursDimensions[1] / 2);
+        y = dc.getHeight() / 2;
         dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, mFont, hourStr, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(x, y, mFont, hourStr, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        x += hoursDimensions[0];
-        x += mHmSpacing;
+        x += hoursDimensions[0] + mHmSpacing;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, mFont, minutesStr, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(x, y, mFont, minutesStr, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        x += minutesDimensions[0];
-        x += mMsSpacing;
-        y = (dc.getHeight() / 2) - (secondsDimensions[1] / 2);
-        dc.drawText(x, y, mSecondsFont, secondsStr, Graphics.TEXT_JUSTIFY_LEFT);
+        x += minutesDimensions[0] + mMsSpacing;
+        dc.drawText(x, y, mSecondsFont, secondsStr, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 }
