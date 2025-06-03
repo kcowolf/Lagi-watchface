@@ -14,7 +14,9 @@ class BluetoothView extends WatchUi.Drawable {
     function draw(dc) {
         if (System.getDeviceSettings().phoneConnected) {
             dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(dc.getWidth() * 0.1, dc.getHeight() / 2, mIconFont, "D", Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+        } else {
+            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
         }
+        dc.drawText(locX, locY, mIconFont, "D", Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 }

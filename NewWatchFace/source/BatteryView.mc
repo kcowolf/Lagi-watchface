@@ -20,19 +20,14 @@ class BatteryView extends WatchUi.Drawable {
         var battery = System.getSystemStats().battery.toLong();
         var batteryStr = battery.format("%d") + "%";
 
-        var viewX = dc.getWidth()* 0.5;
-        var viewY = dc.getHeight()* 0.15;
-        var viewW = dc.getWidth() * 0.4;
-        var viewH = dc.getHeight() * 0.20;
-
         //dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        //dc.drawRectangle(viewX, viewY, viewW, viewH);
+        //dc.drawRectangle(locX, locY, width, height);
 
         var iconDimensions = dc.getTextDimensions("C", mIconFont);
         var batteryDimensions = dc.getTextDimensions(batteryStr, mFont);
 
-        var x = viewX + (viewW / 2) - ((iconDimensions[0] + batteryDimensions[0] + 2) / 2);
-        var y = viewY + (viewH / 2) - ((iconDimensions[1]) / 2);
+        var x = locX + (width / 2) - ((iconDimensions[0] + batteryDimensions[0] + 2) / 2);
+        var y = locY + (height / 2) - ((iconDimensions[1]) / 2);
         dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mIconFont, "C", Graphics.TEXT_JUSTIFY_LEFT);
 

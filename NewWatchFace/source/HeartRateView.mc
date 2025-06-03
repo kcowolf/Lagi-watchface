@@ -31,13 +31,8 @@ class HeartRateView extends WatchUi.Drawable {
             heartRateStr = "--";
         }
 
-        var viewX = dc.getWidth() * 0.1;
-        var viewY = dc.getHeight() * 0.65;
-        var viewW = dc.getWidth() * 0.4;
-        var viewH = dc.getHeight() * 0.2;
-
         //dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        //dc.drawRectangle(viewX, viewY, viewW, viewH);
+        //dc.drawRectangle(locX, locY, width, height);
 
         var x;
         var y;
@@ -45,13 +40,13 @@ class HeartRateView extends WatchUi.Drawable {
         var iconDimensions = dc.getTextDimensions("A", mIconFont);
         var heartRateDimensions = dc.getTextDimensions(heartRateStr, mFont);
 
-        x = viewX + (viewW / 2) - ((iconDimensions[0] + heartRateDimensions[0] + 2) / 2);
-        y = viewY + (viewH / 2) - (iconDimensions[1] / 2);
+        x = locX + (width / 2) - ((iconDimensions[0] + heartRateDimensions[0] + 2) / 2);
+        y = locY + (height / 2) - (iconDimensions[1] / 2);
         dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mIconFont, "A", Graphics.TEXT_JUSTIFY_LEFT);
 
         x += iconDimensions[0] + 2;
-        y = viewY + (viewH / 2) - (heartRateDimensions[1] / 2);
+        y = locY + (height / 2) - (heartRateDimensions[1] / 2);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mFont, heartRateStr, Graphics.TEXT_JUSTIFY_LEFT);
    }

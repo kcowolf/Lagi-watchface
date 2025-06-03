@@ -137,13 +137,8 @@ class WeatherView extends WatchUi.Drawable {
             }
         }
 
-        var viewX = dc.getWidth()* 0.1;
-        var viewY = dc.getHeight()* 0.15;
-        var viewW = dc.getWidth() * 0.4;
-        var viewH = dc.getHeight() * 0.20;
-
         //dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        //dc.drawRectangle(viewX, viewY, viewW, viewH);
+        //dc.drawRectangle(locX, locY, width, height);
 
         var highLowtempsStr = Lang.format("$1$ $2$", [
             tempStr(currentConditions.lowTemperature),
@@ -156,8 +151,8 @@ class WeatherView extends WatchUi.Drawable {
         var currentTempDimensions = dc.getTextDimensions(currentTempStr, mFont);
         var iconDimensions = dc.getTextDimensions(mDayConditionStr, mIconFont);
 
-        var x = viewX + (viewW / 2) - ((iconDimensions[0] + currentTempDimensions[0] + 2) / 2);
-        var y = viewY + (viewH / 2) - ((iconDimensions[1] + highLowDimensions[1]) / 2);
+        var x = locX + (width / 2) - ((iconDimensions[0] + currentTempDimensions[0] + 2) / 2);
+        var y = locY + (height / 2) - ((iconDimensions[1] + highLowDimensions[1]) / 2);
         dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mIconFont, mDayConditionStr, Graphics.TEXT_JUSTIFY_LEFT);
 
@@ -166,8 +161,8 @@ class WeatherView extends WatchUi.Drawable {
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mFont, currentTempStr, Graphics.TEXT_JUSTIFY_LEFT);
 
-        x = viewX + (viewW / 2) - (highLowDimensions[0] / 2);
-        y = viewY + (viewH / 2) - ((iconDimensions[1] + highLowDimensions[1]) / 2) + iconDimensions[1];
+        x = locX + (width / 2) - (highLowDimensions[0] / 2);
+        y = locY + (height / 2) - ((iconDimensions[1] + highLowDimensions[1]) / 2) + iconDimensions[1];
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mFont, highLowtempsStr, Graphics.TEXT_JUSTIFY_LEFT);
     }

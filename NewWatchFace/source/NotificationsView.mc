@@ -19,21 +19,20 @@ class NotificationsView extends WatchUi.Drawable {
         var notifications = System.getDeviceSettings().notificationCount;
         var notificationsStr = notifications.format("%d");
 
-        var viewX = 0;
-        var viewY = dc.getHeight() * 0.85;
-        var viewW = dc.getWidth();
-        var viewH = dc.getHeight() * 0.15;
-
         //dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        //dc.drawRectangle(viewX, viewY, viewW, viewH);
+        //dc.drawRectangle(locX, locY, width, height);
 
         var iconDimensions = dc.getTextDimensions("E", mIconFont);
         var notificationDimensions = dc.getTextDimensions(notificationsStr, mFont);
 
-        var x = viewX + (viewW / 2) - ((iconDimensions[0] + notificationDimensions[0] + 2) / 2);
-        var y = viewY + (viewH / 2);
+        var x = locX + (width / 2) - ((iconDimensions[0] + notificationDimensions[0] + 2) / 2);
+        var y = locY + (height / 2);
 
-        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+        if (notifications == 0) {
+            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+        } else {
+            dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+        }
         dc.drawText(x, y, mIconFont, "E", Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
 
         x += (iconDimensions[0] + 2);

@@ -1,15 +1,48 @@
 <layout id="WatchFace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <drawable class="Background" />
 
-    <drawable id="Date" class="DateView" />
+    <drawable id="Date" class="DateView">
+        <param name="locX">0</param>
+        <param name="locY">0</param>
+        <param name="width">dc.getWidth()</param>
+        <param name="height">dc.getHeight() * 0.15</param>
+    </drawable>
     <drawable id="Clock" class="ClockView">
         <param name="hmSpacing">5</param>
         <param name="msSpacing">5</param>
     </drawable>
-    <drawable id="Weather" class="WeatherView" />
-    <drawable id="HeartRate" class="HeartRateView" />
-    <drawable id="Steps" class="StepsView" />
-    <drawable id="Battery" class="BatteryView" />
-    <drawable id="Bluetooth" class="BluetoothView" />
-    <drawable id="Notifications" class="NotificationsView" />
+    <drawable id="Weather" class="WeatherView">
+        <param name="locX">dc.getWidth()* 0.1</param>
+        <param name="locY">dc.getHeight()* 0.15</param>
+        <param name="width">dc.getWidth() * 0.4</param>
+        <param name="height">dc.getHeight() * 0.20</param>
+    </drawable>
+    <drawable id="HeartRate" class="HeartRateView">
+        <param name="locX">dc.getWidth() * 0.1</param>
+        <param name="locY">dc.getHeight() * 0.65</param>
+        <param name="width">dc.getWidth() * 0.4</param>
+        <param name="height">dc.getHeight() * 0.2</param>
+    </drawable>
+    <drawable id="Steps" class="StepsView">
+        <param name="locX">dc.getWidth() * 0.5</param>
+        <param name="locY">dc.getHeight() * 0.65</param>
+        <param name="width">dc.getWidth() * 0.4</param>
+        <param name="height">dc.getHeight() * 0.20</param>
+    </drawable>
+    <drawable id="Battery" class="BatteryView">
+        <param name="locX">dc.getWidth()* 0.5</param>
+        <param name="locY">dc.getHeight()* 0.15</param>
+        <param name="width">dc.getWidth() * 0.4</param>
+        <param name="height">dc.getHeight() * 0.20</param>
+    </drawable>
+    <drawable id="Bluetooth" class="BluetoothView">
+        <param name="locX">dc.getWidth() * 0.1</param>
+        <param name="locY">dc.getHeight() / 2</param>
+    </drawable>
+    <drawable id="Notifications" class="NotificationsView">
+        <param name="locX">0</param>
+        <param name="locY">dc.getHeight() * 0.85</param>
+        <param name="width">dc.getWidth()</param>
+        <param name="height">dc.getHeight() * 0.15</param>
+    </drawable>
 </layout>

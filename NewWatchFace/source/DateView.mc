@@ -53,13 +53,10 @@ class DateView extends WatchUi.Drawable {
             ]);
         }
 
-        var viewW = dc.getWidth();
-        var viewH = dc.getHeight() * 0.15;
-
         //dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        //dc.drawRectangle(viewX, viewY, viewW, viewH);
+        //dc.drawRectangle(locX, locY, width, height);
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(viewW / 2, viewH / 2, mFont, mDateStr, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(width / 2, height / 2, mFont, mDateStr, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 }
