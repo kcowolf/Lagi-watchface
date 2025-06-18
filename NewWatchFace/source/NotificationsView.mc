@@ -27,18 +27,18 @@ class NotificationsView extends WatchUi.Drawable {
         var y = locY + (height / 2);
 
         if (notifications == 0) {
-            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(gDisabledColor, Graphics.COLOR_TRANSPARENT);
         } else {
-            dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(gAccentColor, Graphics.COLOR_TRANSPARENT);
         }
         dc.drawText(x, y, mIconFont, "E", Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
 
         x += (iconDimensions[0] + 2);
 
         if (notifications == 0) {
-            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(gDisabledColor, Graphics.COLOR_TRANSPARENT);
         } else {
-            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(gPrimaryTextColor, Graphics.COLOR_TRANSPARENT);
         }
         dc.drawText(x, y, mFont, notificationsStr, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }

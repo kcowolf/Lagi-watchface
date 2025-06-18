@@ -3,6 +3,7 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 class NewWatchFaceApp extends Application.AppBase {
+    var mView;
 
     function initialize() {
         AppBase.initialize();
@@ -18,11 +19,13 @@ class NewWatchFaceApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as [Views] or [Views, InputDelegates] {
-        return [ new NewWatchFaceView() ];
+        mView = new NewWatchFaceView();
+        return [ mView ];
     }
 
     // New app settings have been received so trigger a UI update
     function onSettingsChanged() as Void {
+        mView.onSettingsChanged();
         WatchUi.requestUpdate();
     }
 

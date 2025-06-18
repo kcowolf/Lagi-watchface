@@ -25,11 +25,11 @@ class BatteryView extends WatchUi.Drawable {
 
         var x = locX + (width / 2) - ((iconDimensions[0] + batteryDimensions[0] + 2) / 2);
         var y = locY + (height / 2);
-        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(gAccentColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mIconFont, "C", Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
 
         x += iconDimensions[0] + 2;
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(gPrimaryTextColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mFont, batteryStr, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 }

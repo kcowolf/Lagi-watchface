@@ -56,7 +56,7 @@ class DateView extends WatchUi.Drawable {
         //dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
         //dc.drawRectangle(locX, locY, width, height);
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(gPrimaryTextColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(width / 2, height / 2, mFont, mDateStr, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 }

@@ -39,7 +39,7 @@ class ClockView extends WatchUi.Drawable {
         var x = (dc.getWidth() / 2) - (lineLength / 2);
         var y = (dc.getHeight() / 2) - (hoursDimensions[1] / 2) + 10;
 
-        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(gLineColor, Graphics.COLOR_TRANSPARENT);
         dc.drawLine(x, y, x + lineLength, y);
 
         y += hoursDimensions[1] - 20;
@@ -49,11 +49,11 @@ class ClockView extends WatchUi.Drawable {
 
         x = (dc.getWidth() / 2) - (hmLength / 2);
         y = dc.getHeight() / 2;
-        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(gAccentColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mFont, hourStr, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
 
         x += hoursDimensions[0] + mHmSpacing;
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(gPrimaryTextColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mFont, minutesStr, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
 
         x += minutesDimensions[0] + mMsSpacing;

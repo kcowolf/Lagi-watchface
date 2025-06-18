@@ -162,17 +162,17 @@ class WeatherView extends WatchUi.Drawable {
 
         var x = locX + (width / 2) - ((iconDimensions[0] + currentTempDimensions[0] + 2) / 2);
         var y = locY + (height / 2) - ((iconDimensions[1] + highLowDimensions[1]) / 2);
-        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(gAccentColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mIconFont, conditionStr, Graphics.TEXT_JUSTIFY_LEFT);
 
         x += iconDimensions[0] + 2;
         y += ((iconDimensions[1] / 2) - (currentTempDimensions[1] / 2));
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(gPrimaryTextColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mFont, currentTempStr, Graphics.TEXT_JUSTIFY_LEFT);
 
         x = locX + (width / 2) - (highLowDimensions[0] / 2);
         y = locY + (height / 2) - ((iconDimensions[1] + highLowDimensions[1]) / 2) + iconDimensions[1];
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(gSecondaryTextColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, mFont, highLowtempsStr, Graphics.TEXT_JUSTIFY_LEFT);
     }
 
