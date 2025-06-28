@@ -5,12 +5,12 @@
         Use "Monkey C: Edit Application" from the Visual Studio Code command palette
         to update the application attributes.
     -->
-    <iq:application id="4cc92de8-1bd9-4609-b751-60e27dd2bbd6" type="watchface" name="@Strings.AppName" entry="NewWatchFaceApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="5.0.1">
+    <iq:application id="84e58517-7ae4-46c2-9825-8858da985838" type="watchface" name="@Strings.AppName" entry="lagi_watchfaceApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="5.0.1">
         <!--
             Use the following from the Visual Studio Code comand palette to edit
             the build targets:
             "Monkey C: Set Products by Product Category" - Lets you add all products
-                                       that belong to the same product category													
+                                       that belong to the same product category
             "Monkey C: Edit Products" - Lets you add or remove any product
         -->
         <iq:products>

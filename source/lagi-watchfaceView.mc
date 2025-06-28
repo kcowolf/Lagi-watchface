@@ -10,7 +10,8 @@ var gSecondaryTextColor;
 var gDisabledColor;
 var gLineColor;
 
-class NewWatchFaceView extends WatchUi.WatchFace {
+class lagi_watchfaceView extends WatchUi.WatchFace {
+
     function initialize() {
         onSettingsChanged();
         WatchFace.initialize();

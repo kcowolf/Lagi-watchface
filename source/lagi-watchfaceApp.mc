@@ -2,7 +2,7 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
-class NewWatchFaceApp extends Application.AppBase {
+class lagi_watchfaceApp extends Application.AppBase {
     var mView;
 
     function initialize() {
@@ -19,7 +19,7 @@ class NewWatchFaceApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as [Views] or [Views, InputDelegates] {
-        mView = new NewWatchFaceView();
+        mView = new lagi_watchfaceView();
         return [ mView ];
     }
 
@@ -31,6 +31,6 @@ class NewWatchFaceApp extends Application.AppBase {
 
 }
 
-function getApp() as NewWatchFaceApp {
-    return Application.getApp() as NewWatchFaceApp;
+function getApp() as lagi_watchfaceApp {
+    return Application.getApp() as lagi_watchfaceApp;
 }
